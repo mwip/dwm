@@ -114,6 +114,7 @@ static Key keys[] = {
 	TAGKEYS(                        XK_8,                      7)
 	TAGKEYS(                        XK_9,                      8)
 	{ MODKEY|ShiftMask,             XK_q,      spawn,          {.v = exit_menu } },
+	{ MODKEY|ShiftMask|ControlMask, XK_q,      quit,           {0} },
 	{ 0,                            XF86MonBrightnessUp, spawn, {.v = brightness_up } },
 	{ 0,                            XF86MonBrightnessUp, spawn, {.v = ref_bar } },
 	{ 0,                            XF86MonBrightnessDown, spawn, {.v = brightness_down } },
