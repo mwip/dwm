@@ -72,13 +72,16 @@ static const char *volume_up[]  = { "/home/loki/.scripts/adjust_volume.sh", "+",
 static const char *volume_down[]  = { "/home/loki/.scripts/adjust_volume.sh", "-", NULL };
 static const char *volume_mute[] = { "/home/loki/.scripts/adjust_volume.sh", "m", NULL };
 static const char *ref_bar[] = {"/home/loki/.scripts/dwm_ref_bar.sh", NULL };
-
+static const char *file_menu[] = {"/home/loki/.scripts/dmenu_filemanager.sh", NULL };
+static const char *display_select[] = {"/home/loki/.scripts/dmenu_displayselect.sh", NULL };
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY,                       XK_r,      spawn,          {.v = dmenucmd } },
 	{ MODKEY,                       XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY|ControlMask,           XK_Return, spawn,          {.v = browsercmd } },
+	{ MODKEY,                       XK_e,      spawn,          {.v = file_menu } },
+	{ MODKEY,                       XK_p,      spawn,          {.v = display_select } },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
