@@ -100,8 +100,8 @@ static Key keys[] = {
 	TAGKEYS(                        XK_8,                      7)
 	TAGKEYS(                        XK_9,                      8)
 	{ MODKEY|ShiftMask,             XK_q,      quit,           {0} },
-	{ 0,                            XKB_KEY_XF86MonBrightnessUp,spawn,{.v = brightness_up } },
-	{ 0,                            XKB_KEY_XF86MonBrightnessDown,spawn,{.v = brightness_down } },
+	{ 0,                            XF86MonBrightnessUp, spawn, {.v = brightness_up } },
+	{ 0,                            XF86MonBrightnessDown, spawn, {.v = brightness_down } },
 };
 
 /* button definitions */
