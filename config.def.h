@@ -74,6 +74,7 @@ static const char *volume_mute[] = { "/home/loki/.scripts/adjust_volume.sh", "m"
 static const char *ref_bar[] = {"/home/loki/.scripts/dwm_ref_bar.sh", NULL };
 static const char *file_menu[] = {"/home/loki/.scripts/dmenu_filemanager.sh", NULL };
 static const char *display_select[] = {"/home/loki/.scripts/dmenu_displayselect.sh", NULL };
+static const char *exit_menu[] = {"/home/loki/.scripts/dmenu_exit.sh", NULL };
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
@@ -112,7 +113,7 @@ static Key keys[] = {
 	TAGKEYS(                        XK_7,                      6)
 	TAGKEYS(                        XK_8,                      7)
 	TAGKEYS(                        XK_9,                      8)
-	{ MODKEY|ShiftMask,             XK_q,      quit,           {0} },
+	{ MODKEY|ShiftMask,             XK_q,      spawn,          {.v = exit_menu } },
 	{ 0,                            XF86MonBrightnessUp, spawn, {.v = brightness_up } },
 	{ 0,                            XF86MonBrightnessUp, spawn, {.v = ref_bar } },
 	{ 0,                            XF86MonBrightnessDown, spawn, {.v = brightness_down } },
