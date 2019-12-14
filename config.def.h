@@ -66,11 +66,11 @@ static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() 
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
 static const char *termcmd[]  = { "urxvtc", NULL };
 static const char *browsercmd[] = { "firefox", NULL };
-static const char *brightness_up[]  =   { "/home/loki/.scripts/brightness.sh", "+", NULL };
-static const char *brightness_down[]  = { "/home/loki/.scripts/brightness.sh", "-", NULL };
-static const char *volume_up[]  = { "/home/loki/.scripts/adjust_volume.sh", "+", NULL };
-static const char *volume_down[]  = { "/home/loki/.scripts/adjust_volume.sh", "-", NULL };
-static const char *volume_mute[] = { "/home/loki/.scripts/adjust_volume.sh", "m", NULL };
+static const char *brightness_up[]  =   { "/home/loki/.scripts/brightness.sh", "+", "&&", "/home/loki/.scripts/dwm_ref_bar.sh", NULL };
+static const char *brightness_down[]  = { "/home/loki/.scripts/brightness.sh", "-", "&&", "/home/loki/.scripts/dwm_ref_bar.sh", NULL };
+static const char *volume_up[]  = { "/home/loki/.scripts/adjust_volume.sh", "+", "&&", "/home/loki/.scripts/dwm_ref_bar.sh", NULL };
+static const char *volume_down[]  = { "/home/loki/.scripts/adjust_volume.sh", "-", "&&", "/home/loki/.scripts/dwm_ref_bar.sh", NULL };
+static const char *volume_mute[] = { "/home/loki/.scripts/adjust_volume.sh", "m", "&&", "/home/loki/.scripts/dwm_ref_bar.sh", NULL };
 
 
 
