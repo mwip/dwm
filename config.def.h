@@ -68,6 +68,11 @@ static const char *termcmd[]  = { "urxvtc", NULL };
 static const char *browsercmd[] = { "firefox", NULL };
 static const char *brightness_up[]  =   { "/home/loki/.scripts/brightness.sh", "+", NULL };
 static const char *brightness_down[]  = { "/home/loki/.scripts/brightness.sh", "-", NULL };
+static const char *volume_up[]  = { "/home/loki/.scripts/adjust_volume.sh", "+", NULL };
+static const char *volume_down[]  = { "/home/loki/.scripts/adjust_volume.sh", "-", NULL };
+static const char *volume_mute[] = { "/home/loki/.scripts/adjust_volume.sh", "m", NULL };
+
+
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
@@ -107,6 +112,9 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_q,      quit,           {0} },
 	{ 0,                            XF86MonBrightnessUp, spawn, {.v = brightness_up } },
 	{ 0,                            XF86MonBrightnessDown, spawn, {.v = brightness_down } },
+	{ 0,                            XF86AudioMute, spawn, {.v = volume_mute } },
+	{ 0,                            XF86AudioRaiseVolume, spawn, {.v = volume_up } },
+	{ 0,                            XF86AudioLowerVolume, spawn, {.v = volume_down } },
 };
 
 /* button definitions */
