@@ -75,10 +75,12 @@ static const char *ref_bar[] = {"/home/loki/.scripts/dwm_ref_bar.sh", NULL };
 static const char *file_menu[] = {"/home/loki/.scripts/dmenu_filemanager.sh", NULL };
 static const char *display_select[] = {"/home/loki/.scripts/dmenu_displayselect.sh", NULL };
 static const char *exit_menu[] = {"/home/loki/.scripts/dmenu_exit.sh", NULL };
+static const char *emacscmd[] = {"emacs", NULL};
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY,                       XK_r,      spawn,          {.v = dmenucmd } },
+	{ ControlMask|Mod1Mask,         XK_e,      spawn,          {.v = emacscmd } },
 	{ MODKEY,                       XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY|ControlMask,           XK_Return, spawn,          {.v = browsercmd } },
 	{ MODKEY,                       XK_e,      spawn,          {.v = file_menu } },
