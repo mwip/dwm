@@ -84,6 +84,7 @@ static const char *screenshot_region[] = {"/home/loki/.scripts/screenshot_region
 static const char *mpc_playpause[] = {"/home/loki/.scripts/mpc_playpause.sh", NULL };
 static const char *mpc_next[] = {"mpc", "next", NULL };
 static const char *mpc_prev[] = {"mpc", "prev", NULL };
+static const char *reset_bt[] = {"/home/loki/.scripts/pabluezswitch.sh", NULL };
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
@@ -129,17 +130,18 @@ static Key keys[] = {
 	{ 0,                            XF86MonBrightnessUp, spawn, {.v = ref_bar } },
 	{ 0,                            XF86MonBrightnessDown, spawn, {.v = brightness_down } },
 	{ 0,                            XF86MonBrightnessDown, spawn, {.v = ref_bar } },
-	{ 0,                            XF86AudioMute, spawn, {.v = volume_mute } },
-	{ 0,                            XF86AudioMute, spawn, {.v = ref_bar } },
+	{ 0,                            XF86AudioMute, spawn,      {.v = volume_mute } },
+	{ 0,                            XF86AudioMute, spawn,      {.v = ref_bar } },
 	{ 0,                            XF86AudioRaiseVolume, spawn, {.v = volume_up } },
 	{ 0,                            XF86AudioRaiseVolume, spawn, {.v = ref_bar } },
 	{ 0,                            XF86AudioLowerVolume, spawn, {.v = volume_down } },
 	{ 0,                            XF86AudioLowerVolume, spawn, {.v = ref_bar } },
 	{ MODKEY,                       XK_s,      spawn,          {.v = screenshot } },
 	{ MODKEY|ShiftMask,             XK_s,      spawn,          {.v = screenshot_region } },
-	{ 0,                            XF86AudioPlay, spawn, {.v = mpc_playpause } },
-	{ 0,                            XF86AudioNext, spawn, {.v = mpc_next } },
-	{ 0,                            XF86AudioPrev, spawn, {.v = mpc_prev } },
+	{ 0,                            XF86AudioPlay, spawn, 	   {.v = mpc_playpause } },
+	{ 0,                            XF86AudioNext, spawn,      {.v = mpc_next } },
+	{ 0,                            XF86AudioPrev, spawn,      {.v = mpc_prev } },
+	{ MODKEY|ShiftMask,		XK_b, 	spawn, 		{.v = reset_bt } },
 };
 
 /* button definitions */
