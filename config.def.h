@@ -76,6 +76,8 @@ static const char *file_menu[] = {"/home/loki/.scripts/dmenu_filemanager.sh", NU
 static const char *display_select[] = {"/home/loki/.scripts/dmenu_displayselect.sh", NULL };
 static const char *exit_menu[] = {"/home/loki/.scripts/dmenu_exit.sh", NULL };
 static const char *emacscmd[] = {"emacs", NULL};
+static const char *screenshot[] = {"/home/loki/.scripts/screenshot_full.sh", NULL};
+static const char *screenshot_region[] = {"/home/loki/.scripts/screenshot_region.sh", NULL};
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
@@ -106,6 +108,8 @@ static Key keys[] = {
 	{ MODKEY,                       XK_period, focusmon,       {.i = +1 } },
 	{ MODKEY|ShiftMask,             XK_comma,  tagmon,         {.i = -1 } },
 	{ MODKEY|ShiftMask,             XK_period, tagmon,         {.i = +1 } },
+	{ MODKEY,                       XK_s,      spawn,          {.v = screenshot } };
+	{ MODKEY|ShiftMask,             XK_s,      spawn,          {.v = screenshot_region } };
 	TAGKEYS(                        XK_1,                      0)
 	TAGKEYS(                        XK_2,                      1)
 	TAGKEYS(                        XK_3,                      2)
