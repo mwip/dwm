@@ -108,8 +108,6 @@ static Key keys[] = {
 	{ MODKEY,                       XK_period, focusmon,       {.i = +1 } },
 	{ MODKEY|ShiftMask,             XK_comma,  tagmon,         {.i = -1 } },
 	{ MODKEY|ShiftMask,             XK_period, tagmon,         {.i = +1 } },
-	{ MODKEY,                       XK_s,      spawn,          {.v = screenshot } };
-	{ MODKEY|ShiftMask,             XK_s,      spawn,          {.v = screenshot_region } };
 	TAGKEYS(                        XK_1,                      0)
 	TAGKEYS(                        XK_2,                      1)
 	TAGKEYS(                        XK_3,                      2)
@@ -131,6 +129,8 @@ static Key keys[] = {
 	{ 0,                            XF86AudioRaiseVolume, spawn, {.v = ref_bar } },
 	{ 0,                            XF86AudioLowerVolume, spawn, {.v = volume_down } },
 	{ 0,                            XF86AudioLowerVolume, spawn, {.v = ref_bar } },
+	{ MODKEY,                       XK_s,      spawn,          {.v = screenshot } };
+	{ MODKEY|ShiftMask,             XK_s,      spawn,          {.v = screenshot_region } };
 };
 
 /* button definitions */
