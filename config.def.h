@@ -129,8 +129,8 @@ static Key keys[] = {
 	{ 0,                            XF86AudioRaiseVolume, spawn, {.v = ref_bar } },
 	{ 0,                            XF86AudioLowerVolume, spawn, {.v = volume_down } },
 	{ 0,                            XF86AudioLowerVolume, spawn, {.v = ref_bar } },
-	{ MODKEY,                       XK_s,      spawn,          {.v = screenshot } };
-	{ MODKEY|ShiftMask,             XK_s,      spawn,          {.v = screenshot_region } };
+	{ MODKEY,                       XK_s,      spawn,          {.v = screenshot } },
+	{ MODKEY|ShiftMask,             XK_s,      spawn,          {.v = screenshot_region } },
 };
 
 /* button definitions */
