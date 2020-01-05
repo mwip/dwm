@@ -139,8 +139,11 @@ static Key keys[] = {
 	{ MODKEY,                       XK_s,      spawn,          {.v = screenshot } },
 	{ MODKEY|ShiftMask,             XK_s,      spawn,          {.v = screenshot_region } },
 	{ 0,                            XF86AudioPlay, spawn, 	   {.v = mpc_playpause } },
+	{ 0,                            XF86AudioPlay, spawn, 	   {.v = ref_bar } },
 	{ 0,                            XF86AudioNext, spawn,      {.v = mpc_next } },
+	{ 0,                            XF86AudioNext, spawn,      {.v = ref_bar } },
 	{ 0,                            XF86AudioPrev, spawn,      {.v = mpc_prev } },
+	{ 0,                            XF86AudioPrev, spawn,      {.v = ref_bar } },
 	{ MODKEY|ShiftMask,		XK_b, 	spawn, 		{.v = reset_bt } },
 };
 
