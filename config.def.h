@@ -144,7 +144,7 @@ static Key keys[] = {
 	{ 0,                            XF86AudioNext, spawn,      {.v = ref_bar } },
 	{ 0,                            XF86AudioPrev, spawn,      {.v = mpc_prev } },
 	{ 0,                            XF86AudioPrev, spawn,      {.v = ref_bar } },
-	{ MODKEY|ShiftMask,		XK_b, 	spawn, 		{.v = reset_bt } },
+	{ MODKEY|ShiftMask,		XK_b, 	       spawn,      {.v = reset_bt } },
 };
 
 /* button definitions */
