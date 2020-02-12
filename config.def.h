@@ -48,6 +48,7 @@ static const Layout layouts[] = {
 /* key definitions */
 #define MODKEY Mod4Mask
 #define XF86AudioMute 0x1008ff12
+#define XF86AudioMicMute 0x1008ffb2
 #define XF86AudioLowerVolume 0x1008ff11
 #define XF86AudioRaiseVolume 0x1008ff13
 #define XF86AudioPlay 0x1008ff14
