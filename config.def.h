@@ -54,10 +54,14 @@ static const Layout layouts[] = {
 /* key definitions */
 #define MODKEY Mod4Mask
 #define XF86AudioMute 0x1008ff12
+#define XF86AudioMicMute 0x1008ffb2
 #define XF86AudioLowerVolume 0x1008ff11
 #define XF86AudioRaiseVolume 0x1008ff13
-#define XF86MonBrightnessDown 0x1008ff03
+#define XF86AudioPlay 0x1008ff14
+#define XF86AudioNext 0x1008ff17
+#define XF86AudioPrev 0x1008ff16
 #define XF86MonBrightnessUp 0x1008ff02
+#define XF86MonBrightnessDown 0x1008ff03
 #define TAGKEYS(KEY,TAG) \
 	{ MODKEY,                       KEY,      view,           {.ui = 1 << TAG} }, \
 	{ MODKEY|ControlMask,           KEY,      toggleview,     {.ui = 1 << TAG} }, \
@@ -69,23 +73,34 @@ static const Layout layouts[] = {
 
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
-static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
-static const char *termcmd[]  = { "urxvtc", NULL };
+static const char *dmenucmd[] = { "/home/loki/.scripts/dmenu_recent.sh", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
+static const char *termcmd[]  = { "alacritty", NULL };
 static const char *browsercmd[] = { "firefox", NULL };
 static const char *brightness_up[]  =   { "/home/loki/.scripts/brightness.sh", "+", NULL };
 static const char *brightness_down[]  = { "/home/loki/.scripts/brightness.sh", "-", NULL };
 static const char *volume_up[]  = { "/home/loki/.scripts/adjust_volume.sh", "+", NULL };
 static const char *volume_down[]  = { "/home/loki/.scripts/adjust_volume.sh", "-", NULL };
 static const char *volume_mute[] = { "/home/loki/.scripts/adjust_volume.sh", "m", NULL };
+static const char *toggle_mic[] = { "/home/loki/.scripts/toggle_microphone.sh", NULL };
 static const char *ref_bar[] = {"/home/loki/.scripts/dwm_ref_bar.sh", NULL };
 static const char *file_menu[] = {"/home/loki/.scripts/dmenu_filemanager.sh", NULL };
 static const char *display_select[] = {"/home/loki/.scripts/dmenu_displayselect.sh", NULL };
 static const char *exit_menu[] = {"/home/loki/.scripts/dmenu_exit.sh", NULL };
+static const char *emacscmd[] = {"emacsclient", "-c", "-a", "''", NULL};
+static const char *capturecmd[] = {"/home/loki/.scripts/org-capture.sh", NULL};
+static const char *screenshot[] = {"/home/loki/.scripts/screenshot_full.sh", NULL};
+static const char *screenshot_region[] = {"/home/loki/.scripts/screenshot_region.sh", NULL};
+static const char *mpc_playpause[] = {"/home/loki/.scripts/mpc_playpause.sh", NULL };
+static const char *mpc_next[] = {"mpc", "next", NULL };
+static const char *mpc_prev[] = {"mpc", "prev", NULL };
+static const char *reset_bt[] = {"/home/loki/.scripts/pabluezswitch.sh", NULL };
 
 #include "movestack.c"
 static Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY,                       XK_r,      spawn,          {.v = dmenucmd } },
+	{ ControlMask|Mod1Mask,         XK_e,      spawn,          {.v = emacscmd } },
+	{ MODKEY,                       XK_c,      spawn,          {.v = capturecmd } },
 	{ MODKEY,                       XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY|ControlMask,           XK_Return, spawn,          {.v = browsercmd } },
 	{ MODKEY,                       XK_e,      spawn,          {.v = file_menu } },
@@ -131,12 +146,22 @@ static Key keys[] = {
 	{ 0,                            XF86MonBrightnessUp, spawn, {.v = ref_bar } },
 	{ 0,                            XF86MonBrightnessDown, spawn, {.v = brightness_down } },
 	{ 0,                            XF86MonBrightnessDown, spawn, {.v = ref_bar } },
-	{ 0,                            XF86AudioMute, spawn, {.v = volume_mute } },
-	{ 0,                            XF86AudioMute, spawn, {.v = ref_bar } },
+	{ 0,                            XF86AudioMicMute, spawn,      {.v = toggle_mic } },
+	{ 0,                            XF86AudioMute, spawn,      {.v = volume_mute } },
+	{ 0,                            XF86AudioMute, spawn,      {.v = ref_bar } },
 	{ 0,                            XF86AudioRaiseVolume, spawn, {.v = volume_up } },
 	{ 0,                            XF86AudioRaiseVolume, spawn, {.v = ref_bar } },
 	{ 0,                            XF86AudioLowerVolume, spawn, {.v = volume_down } },
 	{ 0,                            XF86AudioLowerVolume, spawn, {.v = ref_bar } },
+	{ MODKEY,                       XK_s,      spawn,          {.v = screenshot } },
+	{ MODKEY|ShiftMask,             XK_s,      spawn,          {.v = screenshot_region } },
+	{ 0,                            XF86AudioPlay, spawn, 	   {.v = mpc_playpause } },
+	{ 0,                            XF86AudioPlay, spawn, 	   {.v = ref_bar } },
+	{ 0,                            XF86AudioNext, spawn,      {.v = mpc_next } },
+	{ 0,                            XF86AudioNext, spawn,      {.v = ref_bar } },
+	{ 0,                            XF86AudioPrev, spawn,      {.v = mpc_prev } },
+	{ 0,                            XF86AudioPrev, spawn,      {.v = ref_bar } },
+	{ MODKEY|ShiftMask,		XK_b, 	       spawn,      {.v = reset_bt } },
 };
 
 /* button definitions */
